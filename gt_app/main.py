@@ -24,7 +24,7 @@ def show_greetings():
     time.sleep(0.3)
     typeout2("----- Hello, I am here to help you discover trending repositories on GitHub")
     typeout2("----- You can call me GT.")
-    typeout2("----- To use me, run: github_trending --duration <day> --limit <n>")
+    typeout2("----- To use me, run: github_trending --duration <day> --limit <n>" 'recommended: use <n>=10')
     typeout2("----- Now u will have information about GitHub repos that was created from <day> to today. List will be sorted by stars.")
     typeout2("----- Now we can explore what's hot on GitHub without opening our browser. HOOORAYYY")
 
