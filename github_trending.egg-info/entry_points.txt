@@ -1,0 +1,2 @@
+[console_scripts]
+github_trending = gt_app.main:main
