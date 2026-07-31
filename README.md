@@ -23,9 +23,9 @@ github_trending --duration <day|week|month|year> --limit <n>
 
 ### Options
 
-| Option       | Description                                      | Default |
+| Option       | Description                                      | Recommendation |
 |-------------|--------------------------------------------------|---------|
-| `--duration` | Time range to filter trending repos by.          | `week`  |
+| `--duration` | Time range to filter trending repos by.          | `7`  |
 | `--limit`    | Number of repositories to display.               | `10`    |
 
 ### Examples
