@@ -3,9 +3,11 @@ import json
 import time
 import requests
 from .visuals import typeout, typeout2, typeout3
-from datetime import datetime
+from datetime import datetime, timedelta
 
-TODAY = datetime.today().strftime('%Y-%m-%d')
+TODAY_OBJ = datetime.today()
+TODAY_STR = TODAY_OBJ.strftime('%Y-%m-%d')
+
 
 def show_greetings():
     typeout2("---------------------------")
@@ -31,11 +33,26 @@ def main():
     args = sys.argv[1:]
     if len(args)==0:
         show_greetings()
-    elif len(args)!=4:
+        print(int(TODAY[8:]))
+    elif len(args)!=4 or args[0]!="--duration" or args[2]!="--limit":
         typeout("----- Nuhuh. To use me, run: github_trending --duration <day> --limit <n>")
     else:
-        day = args[1]
-        limit = args[3]
+        try:
+            day = int(args[1])
+        except ValueError:
+            typeout("----- Nuhuh. To use me, run: github_trending --duration <day> --limit <n>")
+            typeout("----- Hint: use integer for duration time")
+            return
+        try:
+            limit = int(args[3])
+        except ValueError:
+            typeout("----- Nuhuh. To use me, run: github_trending --duration <day> --limit <n>")
+            typeout("----- Hint: use integer for limit number")       
+            return
+        
+        from_date_obj = TODAY_OBJ - timedelta(days=day)
+        from_date = from_date_obj.strftime('%Y-%m-%d')
+        print(from_date)
         
         
     
