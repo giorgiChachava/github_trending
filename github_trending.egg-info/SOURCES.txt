@@ -1,8 +1,0 @@
-pyproject.toml
-github_trending.egg-info/PKG-INFO
-github_trending.egg-info/SOURCES.txt
-github_trending.egg-info/dependency_links.txt
-github_trending.egg-info/entry_points.txt
-github_trending.egg-info/top_level.txt
-gt_app/__init__.py
-gt_app/main.py
