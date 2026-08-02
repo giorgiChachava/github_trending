@@ -71,11 +71,9 @@ def main():
     if len(args)==0:
         day=7
         limit=10
-        from_date_obj = TODAY_OBJ - timedelta(days=day)
-        from_date = from_date_obj.strftime('%Y-%m-%d')
-        fetch_data(from_date, limit)      
     elif len(args)==1 and args[0]=="greet":
         show_greetings()
+        return 
     elif len(args)==1 and args[0]!="greet":
         error_messege()
         return
@@ -89,9 +87,6 @@ def main():
         else:
             error_messege()
             return
-        from_date_obj = TODAY_OBJ - timedelta(days=day)
-        from_date = from_date_obj.strftime('%Y-%m-%d')
-        fetch_data(from_date, limit)
     elif len(args)==4:
         if args[0]=="--duration" and args[2]=="--limit":
             day = int(args[1]) 
@@ -102,9 +97,27 @@ def main():
         else:
             error_messege()
             return
-        from_date_obj = TODAY_OBJ - timedelta(days=day)
-        from_date = from_date_obj.strftime('%Y-%m-%d')
-        fetch_data(from_date, limit)
+        
+    if day <= 0:
+        typeout("----- Error: --duration must be greater than 0.")
+        return
+
+    if day > MAX_DURATION_DAYS:
+        typeout(f"----- Warning: Maximum supported duration is {MAX_DURATION_DAYS} days.")
+        typeout(f"----- Capping duration to {MAX_DURATION_DAYS} days to ensure accurate results.")
+        day = MAX_DURATION_DAYS
+
+    if limit <= 0:
+        typeout("----- Error: --limit must be greater than 0.")
+        return
+
+    if limit > MAX_LIMIT:
+        typeout(f"----- Warning: Maximum allowed limit is {MAX_LIMIT}.")
+        limit = MAX_LIMIT
+        
+    from_date_obj = TODAY_OBJ - timedelta(days=day)
+    from_date = from_date_obj.strftime('%Y-%m-%d')
+    fetch_data(from_date, limit)
         
 if __name__ == "__main__":
     main()
