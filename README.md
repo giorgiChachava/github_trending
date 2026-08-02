@@ -15,10 +15,18 @@ pip install -e .
 
 This installs the `github_trending` command.
 
+## Hello Test
+
+run
+
+```bash
+github_trending greet
+```
+
 ## Usage
 
 ```bash
-github_trending --duration <day|week|month|year> --limit <n>
+github_trending --duration <day> --limit <n>
 ```
 
 ### Options
@@ -30,19 +38,19 @@ github_trending --duration <day|week|month|year> --limit <n>
 
 ### Examples
 
-Fetch the top 20 trending repositories of the month:
+Fetch the top 20 trending repositories of last 10 days:
 
 ```bash
-github_trending --duration month --limit 20
+github_trending --duration 10 --limit 20
 ```
 
-Fetch the top 5 trending repositories of the day:
+Fetch the top 5 trending repositories from yesterday to today:
 
 ```bash
-github_trending --duration day --limit 5
+github_trending --duration 1 --limit 5
 ```
 
-Run it with no arguments to use the defaults (`week`, limit `10`):
+Run it with no arguments to use the defaults (`7`, limit `10`):
 
 ```bash
 github_trending
@@ -52,5 +60,5 @@ github_trending
 
 - Fetches trending repositories from the GitHub API (no authentication required).
 - Sorts repositories by star count.
-- Displays repository name, description, number of stars, and primary language.
+- Displays repository name, number of stars, and their html_URL.
 - Robust error handling for invalid input and API errors.
