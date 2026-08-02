@@ -1,4 +1,4 @@
-# GUA — GitHub Trending CLI
+# GT — GitHub Trending CLI
 
 A small CLI that fetches and displays trending repositories from GitHub.
 
